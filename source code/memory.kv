@@ -1,0 +1,62 @@
+<StartScreen>
+
+    GridLayout:
+
+        cols: 1
+        size: root.width, root.height
+        Label:
+            text: "Welcome to Memory"
+            font_size: self.width/15
+            color: 1,0,1,1
+
+        GridLayout:
+            cols: 2
+            size_hint: 1 , 0.3
+            Label:
+                text: "Your name: "
+                font_size: self.width/15
+            TextInput:
+                id: player_name
+                text: ""
+                multiline: False
+                font_size: player_name.width/10
+            Label:
+                text: f"How many words: {str(slider.value)}"
+                font_size: self.width/15
+            Slider:
+                id: slider
+                min: 2
+                max: 18
+                step: 1
+                orientation: "horizontal"
+                value_track:True
+                value_track_color:[1, 0, 1, 1]
+
+        Button:
+            text: "Enter"
+            size_hint: 1 , 0.5
+            font_size: player_name.width/10
+            on_press:
+                root.change()
+                root.pressed()
+                
+                
+
+<ScoreScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        
+        Label:
+            id: title
+            text: ""
+            font_size: self.width/20
+            color: 1,0,1,1
+            size_hint: 1 , 0.3
+
+
+        Label:
+            id: point
+            text: ""
+            font_size: self.width/30
+            size_hint: 1 , 0.7
+        
